@@ -4,16 +4,27 @@
       <div>
         <img src="path-to-logo" alt="Logo" />
       </div>
-      <div>
-        <a class="p-5 fs-5 text-decoration-none text-dark fw-bold">Home</a>
-        <a class="fs-5 text-decoration-none text-dark fw-bold">Nuevo Usuario</a>
-      </div>
+      <nav>
+        <a
+          routerLinkActive="active"
+          aria-current="page"
+          [routerLink]="['/home']"
+          class="px-4 fs-5 text-decoration-none text-secondary fw-bold active"
+          >Home</a
+        >
+        <a
+          [routerLink]="['/newuser']"
+          routerLinkActive="active"
+          class="fs-5 text-decoration-none text-secondary fw-bold active"
+          >Nuevo Usuario</a
+        >
+      </nav>
     </div>
   </div>
 </header>
 
 <router-outlet />
 
-<footer class="bg-dark p-5 fixed-bottom text-center">
+<!-- <footer class="bg-dark p-5 fixed-bottom text-center">
   <p class="text-white">Copyright © 2024 UserApp</p>
-</footer>
+</footer> -->

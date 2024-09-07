@@ -1,3 +1,11 @@
+export interface IApi {
+    page: number;
+    per_page?: number;
+    total?: number;
+    total_pages: number;
+    results: IUser[];
+  }
+
 export interface IUser {
     _id: string;
     id: number;

@@ -1,1 +1,31 @@
-<p>user-card works!</p>
+<div class="card mb-3 border-4 p-3">
+  <img
+    src="{{ myUser.image }}"
+    alt="{{ myUser.first_name }} {{ myUser.last_name }}"
+    class="rounded-circle img-fluid"
+  />
+  <h5>{{ myUser.first_name }} {{ myUser.last_name }}</h5>
+  <div class="btn-container">
+    <div class="btn-wrapper" [routerLink]="['/user', myUser.id]">
+      <button class="btn btn-outline-secondary btn-custom">
+        <i class="fas fa-search"></i><small>Ver detalle</small>
+      </button>
+    </div>
+    <div class="btn-wrapper" [routerLink]="['/user', myUser.id]">
+      <button
+        class="btn btn-outline-secondary btn-custom"
+        [routerLink]="['/updateuser', myUser.id]"
+      >
+        <i class="fas fa-refresh"></i><small>Actualizar</small>
+      </button>
+    </div>
+    <div class="btn-wrapper" [routerLink]="['/user', myUser.id]">
+      <button
+        class="btn btn-outline-secondary btn-custom"
+        [routerLink]="['/newuser']"
+      >
+        <i class="fa-solid fa-trash"></i><small>Borrar</small>
+      </button>
+    </div>
+  </div>
+</div>
