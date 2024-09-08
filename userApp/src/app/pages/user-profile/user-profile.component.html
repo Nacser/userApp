@@ -1,1 +1,49 @@
-<p>user-profile works!</p>
+<div *ngIf="user" class="container d-flex justify-content-between my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <img
+        src="{{ user.image }}"
+        alt="{{ user.first_name }} {{ user.last_name }}"
+        class="rounded-circle img-fluid"
+      />
+    </div>
+    <div
+      class="d-flex mx-3 my-3 col-md-1 col-sm-1 col-xs-1 justify-content-center"
+      style="height: auto"
+    >
+      <div class="vr"></div>
+    </div>
+    <div class="d-flex row align-items-center col-md-5 col-sm-12 col-xs-12">
+      <h1>{{ user.first_name }}</h1>
+      <h2>{{ user.last_name }}</h2>
+      <p>
+        <strong>Nombre Usuario:</strong>
+        {{ user.username }}
+      </p>
+      <p>
+        <strong>Email:</strong>
+        {{ user.email }}
+      </p>
+      <div class="d-flex">
+        <button
+          class="border-1 rounded-start p-3 bg-white"
+          (click)="delete(user._id)"
+        >
+          Eliminar
+        </button>
+        <button
+          class="border-1 p-3 bg-white"
+          [routerLink]="['/updateuser', user._id]"
+        >
+          Actualizar
+        </button>
+        <button
+          class="border-1 rounded-end p-3 bg-white"
+          [routerLink]="['/home']"
+        >
+          Volver a listado
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,23 +6,20 @@
   />
   <h5>{{ myUser.first_name }} {{ myUser.last_name }}</h5>
   <div class="btn-container">
-    <div class="btn-wrapper" [routerLink]="['/user', myUser.id]">
+    <div class="btn-wrapper" [routerLink]="['/user', myUser._id]">
       <button class="btn btn-outline-secondary btn-custom">
         <i class="fas fa-search"></i><small>Ver detalle</small>
       </button>
     </div>
-    <div class="btn-wrapper" [routerLink]="['/user', myUser.id]">
-      <button
-        class="btn btn-outline-secondary btn-custom"
-        [routerLink]="['/updateuser', myUser.id]"
-      >
+    <div class="btn-wrapper" [routerLink]="['/updateuser', myUser._id]">
+      <button class="btn btn-outline-secondary btn-custom">
         <i class="fas fa-refresh"></i><small>Actualizar</small>
       </button>
     </div>
-    <div class="btn-wrapper" [routerLink]="['/user', myUser.id]">
+    <div class="btn-wrapper">
       <button
         class="btn btn-outline-secondary btn-custom"
-        [routerLink]="['/newuser']"
+        (click)="delete(myUser._id)"
       >
         <i class="fa-solid fa-trash"></i><small>Borrar</small>
       </button>
