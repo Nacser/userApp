@@ -8,6 +8,7 @@ import {
 import { UsersService } from '../../services/users.service';
 import { IUser } from '../../interfaces/iuser.interface';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user-form',
@@ -99,25 +100,55 @@ export class UserFormComponent {
           formData
         );
         if (updatedUser) {
-          alert('Usuario actualizado con éxito');
+          Swal.fire({
+            title: '¡Éxito!',
+            text: 'Usuario actualizado con éxito',
+            icon: 'success',
+            confirmButtonText: 'Continuar',
+          });
           this.router.navigate(['/user', formData._id]);
         } else {
-          alert('Error actualizando usuario');
+          Swal.fire({
+            title: '¡Error!',
+            text: 'No se pudo actualizar el usuario',
+            icon: 'error',
+            confirmButtonText: 'Continuar',
+          });
         }
       } catch (error) {
-        alert('Ocurrió un error. Por favor, intenta nuevamente.');
+        Swal.fire({
+          title: '¡Ups!',
+          text: 'Parece que hubo un problema, intenta nuevamente',
+          icon: 'warning',
+          confirmButtonText: 'Continuar',
+        });
       }
     } else {
       try {
         const createdUser = await this.usersService.create(formData);
         if (createdUser) {
-          alert('Usuario creado con éxito');
-          this.router.navigate(['/home']);
+          Swal.fire({
+            title: '¡Éxito!',
+            text: 'Usuario creado con éxito',
+            icon: 'success',
+            confirmButtonText: 'Continuar',
+          });
+          this.userForm.reset();
         } else {
-          alert('Error creando usuario');
+          Swal.fire({
+            title: '¡Error!',
+            text: 'No se pudo crear el usuario',
+            icon: 'error',
+            confirmButtonText: 'Continuar',
+          });
         }
       } catch (error) {
-        alert('Ocurrió un error. Por favor, intenta nuevamente.');
+        Swal.fire({
+          title: '¡Ups!',
+          text: 'Parece que hubo un problema, intenta nuevamente',
+          icon: 'warning',
+          confirmButtonText: 'Continuar',
+        });
       }
     }
   }
