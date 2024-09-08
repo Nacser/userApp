@@ -14,15 +14,35 @@ import { inject } from "@angular/core";
 export class HomeComponent {
   usersService = inject(UsersService);
   arrUsers: IUser[] = [];
-
+  currentPage: number = 1;
+  totalPages: number = 1;
+  perPage: number = 10;
 
   async ngOnInit() {
-    try {
-    const response = await this.usersService.getAll();
-    this.arrUsers = response;
-  }catch(error) {
-    console.log(error);
+    await this.loadUsers();
   }
+
+  async loadUsers(page: number = 1) {
+    try {
+      const response = await this.usersService.getAll(page, this.perPage);
+      this.arrUsers = response.results;
+      this.currentPage = response.page;
+      this.totalPages = response.total_pages;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.loadUsers(this.currentPage + 1);
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.loadUsers(this.currentPage - 1);
+    }
   }
   
 }

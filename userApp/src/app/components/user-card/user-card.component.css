@@ -15,11 +15,11 @@ h5 {
 .btn-container {
     margin-top: auto;
     display: flex;
-    gap: 10px; /* Espacio entre los botones */
+    gap: 10px;
   }
 
   .btn-wrapper {
-    flex: 1; /* Los botones ocuparán el mismo espacio */
+    flex: 1;
   }
 
 .card {

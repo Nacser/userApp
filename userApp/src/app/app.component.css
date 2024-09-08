@@ -1,0 +1,11 @@
+nav a {
+    color: gray;
+    transition: color 0.3s ease;
+  }
+  
+  nav a.active {
+    color: black;
+    border-bottom: 3px solid black;
+    text-decoration: none;
+  }
+  

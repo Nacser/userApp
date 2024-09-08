@@ -1,10 +1,29 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .pagination button {
-    margin: 5px;
-    padding: 10px;
-  }
-  
-  .pagination button.active {
-    font-weight: bold;
-    background-color: #007bff;
-    color: white;
-  }
+  margin: 0 5px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.pagination button[disabled] {
+  background-color: #d6d6d6;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+span {
+  display: flex;
+  align-items: center;
+}

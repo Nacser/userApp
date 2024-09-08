@@ -26,21 +26,18 @@
       </p>
       <div class="d-flex">
         <button
-          class="border-1 rounded-start p-3 bg-white"
+          class="border-1 rounded-start p-2 w-100"
           (click)="delete(user._id)"
         >
           Eliminar
         </button>
         <button
-          class="border-1 p-3 bg-white"
+          class="border-1 p-2 w-100"
           [routerLink]="['/updateuser', user._id]"
         >
           Actualizar
         </button>
-        <button
-          class="border-1 rounded-end p-3 bg-white"
-          [routerLink]="['/home']"
-        >
+        <button class="border-1 rounded-end p-2 w-100" [routerLink]="['/home']">
           Volver a listado
         </button>
       </div>
