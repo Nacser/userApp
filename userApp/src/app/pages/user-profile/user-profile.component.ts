@@ -25,7 +25,10 @@ export class UserProfileComponent {
     });
   }
 
-  async delete(id: string) {
+  async delete(id: string | undefined) {
+    if (!id) {
+      return;
+    }
     const confirmDelete = confirm(`¿Estás seguro de que quieres eliminar el usuario con ID: ${id}?`);
     if (confirmDelete) {
       try {

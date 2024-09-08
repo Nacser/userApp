@@ -1,1 +1,101 @@
-<p>user-form works!</p>
+<h1>{{ tipo }} usuario</h1>
+
+<form [formGroup]="userForm" (ngSubmit)="getDataForm()">
+  <div>
+    <label class="form-label mt-3" for="first_name">Nombre:</label>
+    <input
+      class="form-control"
+      type="text"
+      id="first_name"
+      formControlName="first_name"
+      id="first_name"
+      placeholder="Nombre"
+    />
+    @if(checkControl('first_name', 'required')){
+    <small>Campo requerido</small>
+    }
+  </div>
+
+  <div>
+    <label class="form-label mt-3" for="last_name">Apellidos:</label>
+    <input
+      class="form-control"
+      type="text"
+      id="last_name"
+      formControlName="last_name"
+      id="last_name"
+      placeholder="Apellidos"
+    />
+    @if(checkControl('last_name', 'required')){
+    <small>Campo requerido</small>
+    }
+  </div>
+  <div>
+    <label class="form-label mt-3" for="username">Nombre de usuario:</label>
+    <input
+      class="form-control"
+      type="text"
+      id="username"
+      formControlName="username"
+      id="username"
+      placeholder="Nombre de usuario"
+    />
+    @if(checkControl('username', 'required')){
+    <small>Campo requerido</small>
+    }
+  </div>
+  <div>
+    <label class="form-label mt-3" for="email">Correo electrónico:</label>
+    <input
+      class="form-control"
+      type="email"
+      id="email"
+      formControlName="email"
+      id="email"
+      placeholder="Correo electrónico"
+    />
+    @if(checkControl('email', 'required')){
+    <small>Campo requerido</small>
+    } @if(checkControl('email', 'pattern')){
+    <small>Introducir un correo electrónico válido</small>
+    }
+  </div>
+  <div>
+    <label class="form-label mt-3" for="image">Foto:</label>
+    <input
+      class="form-control"
+      type="string"
+      id="image"
+      formControlName="image"
+      id="image"
+      placeholder="Url de la foto"
+    />
+    @if(checkControl('image', 'pattern')){
+    <small>Url de imagen no válida</small>
+    }
+  </div>
+  <div>
+    <label class="form-label mt-3" for="password">Contraseña:</label>
+    <input
+      class="form-control"
+      type="password"
+      id="password"
+      formControlName="password"
+      id="password"
+      placeholder="Contraseña"
+    />
+    @if(checkControl('password', 'required')){
+    <small>Campo requerido</small>
+    } @if(checkControl('password', 'minlength')){
+    <small>Mínimo 8 caracteres</small>
+    }
+  </div>
+  <div>
+    <input
+      type="submit"
+      value="{{ tipo }}"
+      class="btn btn-warning mt-3"
+      [disabled]="!userForm.valid"
+    />
+  </div>
+</form>
