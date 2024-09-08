@@ -1,6 +1,6 @@
 <h1>{{ tipo }} usuario</h1>
 
-<form [formGroup]="userForm" (ngSubmit)="getDataForm()">
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
   <div>
     <label class="form-label mt-3" for="first_name">Nombre:</label>
     <input
@@ -8,7 +8,6 @@
       type="text"
       id="first_name"
       formControlName="first_name"
-      id="first_name"
       placeholder="Nombre"
     />
     @if(checkControl('first_name', 'required')){
@@ -23,7 +22,6 @@
       type="text"
       id="last_name"
       formControlName="last_name"
-      id="last_name"
       placeholder="Apellidos"
     />
     @if(checkControl('last_name', 'required')){
@@ -37,7 +35,6 @@
       type="text"
       id="username"
       formControlName="username"
-      id="username"
       placeholder="Nombre de usuario"
     />
     @if(checkControl('username', 'required')){
@@ -51,7 +48,6 @@
       type="email"
       id="email"
       formControlName="email"
-      id="email"
       placeholder="Correo electrónico"
     />
     @if(checkControl('email', 'required')){
@@ -67,7 +63,6 @@
       type="string"
       id="image"
       formControlName="image"
-      id="image"
       placeholder="Url de la foto"
     />
     @if(checkControl('image', 'pattern')){
@@ -81,7 +76,6 @@
       type="password"
       id="password"
       formControlName="password"
-      id="password"
       placeholder="Contraseña"
     />
     @if(checkControl('password', 'required')){

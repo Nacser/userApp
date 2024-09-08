@@ -56,4 +56,25 @@ export class UsersService {
     }
   }
 
+  async create(user: IUser): Promise<IUser | null> {
+    try {
+      const response = await firstValueFrom(this.http.post<IUser>(this.baseUrl, user));
+      return response;
+    } catch (error) {
+      console.error('Error creando usuario:', error);
+      return null;
+    }
+  }
+
+  async update(id: string, user: IUser): Promise<IUser | null> {
+    try {
+      const response = await firstValueFrom(this.http.put<IUser>(`${this.baseUrl}${id}`, user));
+      return response;
+    } catch (error) {
+      console.error('Error actualizando usuario:', error);
+      return null;
+    }
+  }
+
+
 }
